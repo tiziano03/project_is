@@ -1,0 +1,36 @@
+{
+  "stato": [
+    {
+      "isbn": "alnfonaewif",
+      "titolo": "titolo1",
+      "autore": "autore1",
+      "valutazione": "CINQUE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "BIOGRAFIA"
+    },
+    {
+      "isbn": "skmcmoapje9r",
+      "titolo": "titolo2",
+      "autore": "autore2",
+      "valutazione": "TRE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "BIOGRAFIA"
+    },
+    {
+      "isbn": "vnosdfonsep",
+      "titolo": "titolo3",
+      "autore": "autore3",
+      "valutazione": "UNA_STELLA",
+      "statoLettura": "LETTO",
+      "genere": "BIOGRAFIA"
+    },
+    {
+      "isbn": "ekjfnkcmapoe",
+      "titolo": "titolo4",
+      "autore": "autore4",
+      "valutazione": "DUE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "BIOGRAFIA"
+    }
+  ]
+}
