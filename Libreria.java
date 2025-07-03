@@ -40,6 +40,34 @@ public class Libreria {
 
 
 
+    public void filtraTitolo( String titolo){}
+
+    public void filtraAutore(String autore){}
+
+    public void filtraGenere(Genere genere){}
+
+    public void filtraValutazione(Valutazione valutazione){}
+
+    public void filtraStatoLettura(StatoLettura statoLettura){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static class Memento{
         private List<Libro> stato;
 
@@ -58,7 +86,7 @@ public class Libreria {
 
 
 
-
+/*
 
 
 public static void main (String[] args){
@@ -97,7 +125,7 @@ public static void main (String[] args){
 
 
 
-
+*/
 
 
 
