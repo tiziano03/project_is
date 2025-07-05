@@ -1,0 +1,12 @@
+{
+  "stato": [
+    {
+      "isbn": "978-8871921501",
+      "titolo": "Design Patterns",
+      "autore": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+      "valutazione": "CINQUE_STELLE",
+      "statoLettura": "LETTURA_IN_CORSO",
+      "genere": "TECNICO"
+    }
+  ]
+}

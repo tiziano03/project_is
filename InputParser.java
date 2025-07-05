@@ -22,7 +22,7 @@ public class InputParser {
                 if(i+1<tokens.size() && !tokens.get(i+1).startsWith("--")) {
                     String tokenValore=tokens.get(i+1);
                     argomentiNominali.put(tokenChiave,pulisciToken(tokenValore));
-
+                    i++;
                 }else throw new IllegalArgumentException("L'argomento "+tokenChiave+" richiede un valore");
 
             }else argomentiPosizionali.add(pulisciToken(tokenCorrente));

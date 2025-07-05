@@ -21,8 +21,29 @@ public enum Valutazione {
     private int valore;
 
 
+
     private Valutazione(int valore){}
 
+
+
     public int getValore(){return valore;}
+
+
+
+
+
+    public static Valutazione getValutazione(String stringa){
+        for(Valutazione v: Valutazione.values()){
+            if(v.toString().equalsIgnoreCase(stringa)) return v;
+        }
+        return null;
+    }
+
+
+
+
+
+
+
 
 }

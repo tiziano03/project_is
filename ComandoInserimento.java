@@ -1,10 +1,14 @@
+import java.util.List;
+
 public class ComandoInserimento implements Command{
-    private Libreria libreria;
+    private final Libreria libreria;
+    private final VistaLibreria vistaLibreria;
 
 
 
-    public ComandoInserimento(){
-        this.libreria=Libreria.getInstance();
+    public ComandoInserimento(Libreria libreria, VistaLibreria vistaLibreria){
+        this.libreria=libreria;
+        this.vistaLibreria=vistaLibreria;
 
     }
 
@@ -12,8 +16,28 @@ public class ComandoInserimento implements Command{
 
     @Override
     public void execute(ParsedInput parsedInput) {
+        if(!parsedInput.getArgomentiNominali().isEmpty()) throw new IllegalArgumentException();
+        if(!(parsedInput.getArgomentiPosizionali().size()==6)) throw new IllegalArgumentException();
+
+        List<String> lista=parsedInput.getArgomentiPosizionali();
+        String isbn=lista.get(0);
+        String titolo=lista.get(1);
+        String autore=lista.get(2);
+        Genere genere=Genere.getGenere(lista.get(3));
+        StatoLettura statoLettura=StatoLettura.getStatoLettura(lista.get(4));
+        Valutazione valutazione=Valutazione.getValutazione(lista.get(5));
+
+        if(valutazione==null || genere==null || statoLettura==null) throw new IllegalArgumentException();
 
 
+        if(libreria.esiste(isbn)) throw new IllegalArgumentException();
+
+        Libro libro=new Libro(isbn,titolo,autore,valutazione,genere,statoLettura);
+
+
+        libreria.aggiungiLibro(libro);
+
+        vistaLibreria.mostraMessaggio("Inserimento avvenuto con successo");
 
 
     }

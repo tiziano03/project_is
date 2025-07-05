@@ -1,9 +1,11 @@
 public class ComandoOrdina implements Command {
-    private Libreria libreria;
+    private final Libreria libreria;
+    private final VistaLibreria vistaLibreria;
 
 
-    public ComandoOrdina() {
-        this.libreria = Libreria.getInstance();
+    public ComandoOrdina(Libreria libreria, VistaLibreria vistaLibreria) {
+        this.libreria = libreria;
+        this.vistaLibreria = vistaLibreria;
     }
 
 
@@ -28,6 +30,9 @@ public class ComandoOrdina implements Command {
             default:
                 throw new IllegalArgumentException();
         }
+
+
+        vistaLibreria.mostraMessaggio("libreria ordinata con successo");
 
 
     }

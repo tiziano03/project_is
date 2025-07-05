@@ -2,87 +2,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ControllerLibreria {
-        private Map<String, Command> mappaComandi;
-        private GestorePersistenza gp;
-        private Libreria libreria;
-        private VistaLibreria vista;
-        private InputParser ip;
-        private String path="LibreriaPersonale";
+        private final Map<String, Command> mappaComandi;
+        private final GestorePersistenza gp;
+        private final Libreria libreria;
+        private final VistaLibreria vista;
+        private final InputParser ip;
+        private final String path;
         boolean flag= true;
 
 
 
 
-        public ControllerLibreria(GestorePersistenza gp, VistaLibreria vista){
+        public ControllerLibreria(Libreria libreria, VistaLibreria vista, GestorePersistenza gp){
             this.gp=gp;
             this.vista=vista;
             this.libreria=Libreria.getInstance();
             this.ip=new InputParser();
             this.mappaComandi=new HashMap<>();
+            this.path="LibreriaPersonale";
 
-
-
-            mappaComandi.put("aiuto", new ComandoAiuto());
-            mappaComandi.put("carica", new ComandoCaricamento(gp,path));
-            mappaComandi.put("esci", new ComandoEsci(this));
-            mappaComandi.put("filtra" , new ComandoFiltra());
-            mappaComandi.put("aggiungi",new ComandoInserimento());
-            mappaComandi.put("modifica", new ComandoModifica());
-            mappaComandi.put("ordina",new ComandoOrdina());
-            mappaComandi.put("rimuovi", new ComandoRimozione());
-            mappaComandi.put("salva", new ComandoSalvataggio(gp));
-            mappaComandi.put("visualizza", new ComandoVisualizza());
-
-
+            mappaComandi.put("aiuto", new ComandoAiuto(vista));
+            mappaComandi.put("carica", new ComandoCaricamento(gp,libreria,path,vista));
+            mappaComandi.put("esci", new ComandoEsci(this,vista));
+            mappaComandi.put("filtra" , new ComandoFiltra(libreria,vista));
+            mappaComandi.put("aggiungi",new ComandoInserimento(libreria,vista));
+            mappaComandi.put("modifica", new ComandoModifica(libreria,vista));
+            mappaComandi.put("ordina",new ComandoOrdina(libreria,vista));
+            mappaComandi.put("rimuovi", new ComandoRimozione(libreria,vista));
+            mappaComandi.put("salva", new ComandoSalvataggio(gp,libreria, vista, path));
 
         }
 
 
-        /*
+
         public void run(){
-            presentazione();
+            vista.presentazione();
             while(flag){
-
-
-
-
-
-
-
-
-
-
+                String input= vista.prendiInput();
+                eseguiComando(input);
             }
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
-        */
-
-
-
-
-
-
-
-
-
-
-        private void presentazione(){}
-
-
-
-
 
 
 
@@ -94,6 +53,7 @@ public class ControllerLibreria {
         comando.execute(pi);
 
     }
+
 
 
     public void esci(){

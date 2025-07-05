@@ -22,7 +22,7 @@ public class Libro {
     public Valutazione getValutazione(){return this.valutazione;}
     public Genere getGenere(){return this.genere;}
     public StatoLettura getStatoLettura(){return this.statoLettura;}
-    public void setIsbn(String isbn){ this.isbn = isbn;}
+//  public String setIsbn(String isbn){ return this.isbn=isbn;}
     public void setTitolo(String titolo){ this.titolo = titolo;}
     public void setAutore(String autore){ this.autore = autore;}
     public void setValutazione(Valutazione valutazione){this.valutazione=valutazione;}
@@ -30,7 +30,16 @@ public class Libro {
     public void setStatoLettura(StatoLettura statoLettura){ this.statoLettura = statoLettura;}
 
 
-
+    public String toString(){
+        StringBuilder sb=new StringBuilder();
+        sb.append("isbn: ").append(isbn).append(" titolo: '").append(titolo).append("'")
+                .append(" autore: '").append(autore).append("'")
+                .append(" genere: ").append(genere)
+                .append(" statoLettura: ").append(statoLettura)
+                .append(" valutazione: ").append(valutazione);
+        String ts=sb.toString();
+        return ts;
+    }
 
 
 

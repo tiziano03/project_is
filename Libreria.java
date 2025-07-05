@@ -1,12 +1,8 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-public class Libreria {
+public class Libreria implements Subject {
     private List<Libro> libri=new ArrayList<>();
-
-
+    private List<Observer> osservatori=new LinkedList<>();
     private static Libreria instance=new Libreria();
 
     public static Libreria getInstance(){
@@ -15,17 +11,139 @@ public class Libreria {
 
     private Libreria(){}
 
+    public void aggiungiAscoltatore(Observer observer) {
+        osservatori.add(observer);
+    }
 
-    public void aggiungiLibro(Libro l){
+    public void rimuoviAscoltatore(Observer observer) {
+        osservatori.remove(observer);
+    }
+
+
+    public void aggiungiLibro(Libro l) {
         libri.add(l);
+        notifica();
     }
 
-    public void rimuoviLibro(Libro l){
-        libri.remove(l);
+
+    public void rimuoviIsbn(String isbn) {
+        Iterator<Libro> it = libri.iterator();
+        while (it.hasNext()) {
+            Libro curr = it.next();
+            if (curr.getIsbn().equals(isbn)) {
+                it.remove();
+                notifica();
+                break;
+            }
+        }
     }
+
+    public List<Libro> getLibri(){
+        return libri;
+    }
+
+
+    public boolean esiste(String isbn){
+        for(Libro l:libri)
+            if(l.getIsbn().equals(isbn)) return true;
+        return false;
+    }
+
+
+    public List<Libro> filtraPerTitolo(String titolo){
+        List<Libro> result=new ArrayList<>();
+        for(Libro l: libri){
+            if(l.getTitolo().contains(titolo)) result.add(l);
+        }
+        return result;
+    }
+
+
+    public List<Libro> filtraPerAutore(String autore){
+        List<Libro> result=new ArrayList<>();
+        for(Libro l: libri){
+            if(l.getAutore().contains(autore)) result.add(l);
+        }
+        return result;
+    }
+
+
+    public List<Libro> filtraPerGenere (Genere genere){
+        List<Libro> result=new ArrayList<>();
+        for(Libro l: libri){
+            if(l.getGenere().equals(genere)) result.add(l);
+        }
+        return result;
+    }
+
+
+    public List<Libro> filtraPerStatoLettura(StatoLettura statoLettura){
+        List<Libro> result=new ArrayList<>();
+        for(Libro l: libri){
+            if(l.getStatoLettura().equals(statoLettura)) result.add(l);
+        }
+        return result;
+    }
+
+
+    public List<Libro> filtraPerValutazione(Valutazione valutazione){
+        List<Libro> result=new ArrayList<>();
+        for(Libro l: libri){
+            if(l.getValutazione().equals(valutazione)) result.add(l);
+        }
+        return result;
+    }
+
+
+    public void modificaTitolo(String isbn, String titolo){
+        for(Libro l: libri){
+            if(l.getIsbn().equals(isbn)) l.setTitolo(titolo);
+        }
+    }
+
+    public void modificaAutore(String isbn, String autore){
+        for(Libro l: libri){
+            if(l.getAutore().equals(autore)){
+                l.setAutore(autore);
+                notifica();
+            }
+        }
+    }
+
+    public void modificaGenere(String isbn, Genere genere){
+        for(Libro l: libri){
+            if(l.getIsbn().equals(isbn)){
+                l.setGenere(genere);
+                notifica();
+            }
+        }
+    }
+
+    public void modificaValutazione(String isbn, Valutazione valutazione){
+        for(Libro l: libri){
+            if(l.getIsbn().equals(isbn)){
+                l.setValutazione(valutazione);
+                notifica();
+            }
+        }
+    }
+
+    public void modificaStatoLettura(String isbn, StatoLettura statoLettura){
+        for(Libro l: libri){
+            if(l.getStatoLettura().equals(statoLettura)){
+                l.setStatoLettura(statoLettura);
+                notifica();
+            }
+        }
+    }
+
+
+
+
 
     public void sort(Comparator<Libro> strategy){
         Collections.sort(libri, strategy);
+        notifica();
     }
 
 
@@ -36,19 +154,18 @@ public class Libreria {
 
     public void setMemento(Memento m){
         libri=m.stato;
+        notifica();
+    }
+
+
+    public void notifica(){
+        for (Observer o:osservatori)
+            o.update(libri);
+
     }
 
 
 
-    public void filtraTitolo( String titolo){}
-
-    public void filtraAutore(String autore){}
-
-    public void filtraGenere(Genere genere){}
-
-    public void filtraValutazione(Valutazione valutazione){}
-
-    public void filtraStatoLettura(StatoLettura statoLettura){}
 
 
 
