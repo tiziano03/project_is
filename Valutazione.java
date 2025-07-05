@@ -13,7 +13,9 @@ public enum Valutazione {
      QUATTRO_STELLE(4),
 
 
-     CINQUE_STELLE(5);
+     CINQUE_STELLE(5),
+
+     NON_DISPONIBILE(0);
 
 
 
@@ -22,7 +24,9 @@ public enum Valutazione {
 
 
 
-    private Valutazione(int valore){}
+    private Valutazione(int valore){
+        this.valore=valore;
+    }
 
 
 

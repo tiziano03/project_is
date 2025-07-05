@@ -44,7 +44,7 @@ public class InputParser {
 
 
     public String pulisciToken(String token){
-        if(token.startsWith("'") && token.endsWith("'"))
+        if(token.startsWith("\"") && token.endsWith("\""))
             return token.substring(1,token.length()-1);
         return token;
     }
@@ -54,7 +54,7 @@ public class InputParser {
 
     public List<String> tokenizza(String input) {
         List<String> tokens=new ArrayList<>();
-        String regex="'[^']*'|\\S+"; //un token è una sequenza di caratteri delimitati da apici o da spazi
+        String regex="\"[^\"]*\"|\\S+";; //un token è una sequenza di caratteri delimitati da apici o da spazi
         Pattern pattern=Pattern.compile(regex);
         Matcher matcher=pattern.matcher(input);
         while(matcher.find()) {

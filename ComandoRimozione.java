@@ -12,14 +12,21 @@ public class ComandoRimozione implements Command{
 
     @Override
     public void execute(ParsedInput parsedInput) {
-        if(!parsedInput.getArgomentiPosizionali().isEmpty()) throw new IllegalArgumentException();
-        if (parsedInput.getArgomentiNominali().size()!=1) throw new IllegalArgumentException();
         Map<String, String> mappa=parsedInput.getArgomentiNominali();
+        String isbn= mappa.get("isbn");
+        if(!(parsedInput.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=1) || (isbn==null)){
+            vistaLibreria.mostraMessaggio("Perfavore, rispetta la sintassi:"+"\n"+
+                    "<rimuovi> --<isbn> isbn"+"\n"+
+                    "per maggiori informazioni digita <aiuto rimuovi>");
+            return;
+        }
 
-        String isbn=mappa.get("isbn");
-        if(isbn==null) throw new IllegalArgumentException();
 
-        if(!libreria.esiste(isbn)) vistaLibreria.mostraMessaggio("Il libro non esiste");
+
+        if(!libreria.esiste(isbn)){
+            vistaLibreria.mostraMessaggio("Non è presente un libro con isbn: "+isbn);
+            return;
+        }
 
         libreria.rimuoviIsbn(isbn);
         vistaLibreria.mostraMessaggio("Libro rimosso con successo");

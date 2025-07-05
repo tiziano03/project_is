@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class ComandoOrdina implements Command {
     private final Libreria libreria;
     private final VistaLibreria vistaLibreria;
@@ -11,13 +13,19 @@ public class ComandoOrdina implements Command {
 
     @Override
     public void execute(ParsedInput input) {
-        if (!input.getArgomentiPosizionali().isEmpty()) throw new IllegalArgumentException();
-        if (input.getArgomentiNominali().size() > 1) throw new IllegalArgumentException();
-        String criterio = input.getArgomentiNominali().get("campo");
+        Map<String, String> mappa=input.getArgomentiNominali();
+        String campo=mappa.get("campo");
 
-        if (criterio == null) throw new IllegalArgumentException();
+        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size() > 1) || (campo==null)){
+            vistaLibreria.mostraMessaggio("Perfavore, rispetta la sintassi:"+"\n"+
+                    "<ordina> --<campo> campo"+"\n"+
+                    "per maggiori informazioni digita <aiuto ordina>");
+            return;
+        }
 
-        switch (criterio) {
+
+
+        switch (campo) {
             case "titolo":
                 libreria.sort(new ComparatoreLibroTitolo());
                 break;
@@ -27,8 +35,12 @@ public class ComandoOrdina implements Command {
             case "valutazione":
                 libreria.sort(new ComparatoreLibroValutazione());
                 break;
-            default:
-                throw new IllegalArgumentException();
+            default:{
+                vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                        "i campi per cui è concesso l'ordinamento sono: titolo, autore, valutazione");
+                return;
+            }
+
         }
 
 

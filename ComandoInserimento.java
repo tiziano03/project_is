@@ -16,8 +16,13 @@ public class ComandoInserimento implements Command{
 
     @Override
     public void execute(ParsedInput parsedInput) {
-        if(!parsedInput.getArgomentiNominali().isEmpty()) throw new IllegalArgumentException();
-        if(!(parsedInput.getArgomentiPosizionali().size()==6)) throw new IllegalArgumentException();
+        if(!parsedInput.getArgomentiNominali().isEmpty() || !(parsedInput.getArgomentiPosizionali().size()==6)){
+            vistaLibreria.mostraMessaggio("Perfavore, rispetta la sintassi:"+"\n"+
+                    "<aggiungi> isbn \"titolo\" \"autore\" genere statoLettura valutazione"+"\n"+
+                    "per maggiori informazioni digita:<aiuto aggiungi>");
+            return;
+        }
+
 
         List<String> lista=parsedInput.getArgomentiPosizionali();
         String isbn=lista.get(0);
@@ -27,10 +32,21 @@ public class ComandoInserimento implements Command{
         StatoLettura statoLettura=StatoLettura.getStatoLettura(lista.get(4));
         Valutazione valutazione=Valutazione.getValutazione(lista.get(5));
 
-        if(valutazione==null || genere==null || statoLettura==null) throw new IllegalArgumentException();
+        if(valutazione==null || genere==null || statoLettura==null){
+            vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                    "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
+                    "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
+                    "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
+            return;
+        }
 
 
-        if(libreria.esiste(isbn)) throw new IllegalArgumentException();
+        if(libreria.esiste(isbn)){
+            vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                    "Esiste già un libro con isbn:"+isbn+"."+"\n"+
+                    "Se vuoi sostituirlo, prima rimuovi quello già esistente");
+            return;
+        }
 
         Libro libro=new Libro(isbn,titolo,autore,valutazione,genere,statoLettura);
 

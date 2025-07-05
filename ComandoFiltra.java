@@ -14,14 +14,18 @@ public class ComandoFiltra implements Command{
 
     @Override
     public void execute(ParsedInput input){
-        if (!input.getArgomentiPosizionali().isEmpty()) throw new IllegalArgumentException();
-        if (input.getArgomentiNominali().size()!=2) throw new IllegalArgumentException();
-
         Map<String,String> mappa=input.getArgomentiNominali();
         String campo=mappa.get("campo");
         String valore=mappa.get("valore");
 
-        if(campo==null || valore==null) throw new IllegalArgumentException();
+
+        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=2)
+            || (campo==null) || (valore==null)){
+            vistaLibreria.mostraMessaggio("Errore! Perfavore, rispetta la sintassi:"+"\n"+
+                    "fltra --<campo> campo --<valore> valore"+"\n"
+                    +"Per maggiori informazioni digita:<aiuto filtra>");
+            return;
+        }
 
         List<Libro> libri;
 
@@ -31,23 +35,45 @@ public class ComandoFiltra implements Command{
             case "autore": libri=libreria.filtraPerAutore(valore); break;
             case "genere": {
                 Genere genere=Genere.getGenere(valore);
-                if(genere==null) throw new IllegalArgumentException();
+                if(genere==null){
+                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                            "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
+                            "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
+                            "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
+                    return;
+                }
                 libri=libreria.filtraPerGenere(genere);
                 break;
             }
             case "statoLettura": {
                 StatoLettura statoLettura= StatoLettura.getStatoLettura(valore);
-                if(statoLettura==null) throw new IllegalArgumentException();
+                if(statoLettura==null){
+                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                                    "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
+                                    "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
+                                    "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
+                    return;
+                }
                 libri=libreria.filtraPerStatoLettura(statoLettura);
                 break;
             }
             case "valutazione": {
                 Valutazione valutazione= Valutazione.getValutazione(valore);
-                if(valutazione==null) throw new IllegalArgumentException();
+                if(valutazione==null){
+                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                                    "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
+                                    "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
+                                    "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
+                    return;
+                }
                 libri=libreria.filtraPerValutazione(valutazione);
                 break;
             }
-            default: throw new IllegalArgumentException();
+            default: {
+             vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
+                     "gli argomenti ammissibili per campo sono: titolo, autore, genere, statoLettura, valutazione");
+             return;
+            }
         }
 
 

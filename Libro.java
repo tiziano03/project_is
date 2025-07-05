@@ -32,8 +32,8 @@ public class Libro {
 
     public String toString(){
         StringBuilder sb=new StringBuilder();
-        sb.append("isbn: ").append(isbn).append(" titolo: '").append(titolo).append("'")
-                .append(" autore: '").append(autore).append("'")
+        sb.append("isbn: ").append(isbn).append(" titolo: \"").append(titolo).append("\"")
+                .append(" autore: \"").append(autore).append("\"")
                 .append(" genere: ").append(genere)
                 .append(" statoLettura: ").append(statoLettura)
                 .append(" valutazione: ").append(valutazione);
