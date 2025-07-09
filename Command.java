@@ -1,7 +1,7 @@
 public interface Command {
 
 
-    public void execute(ParsedInput parsedInput);
+    public boolean execute(ParsedInput parsedInput) throws PersistenceException;
 
 
 }

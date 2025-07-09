@@ -1,0 +1,60 @@
+{
+  "stato": [
+    {
+      "isbn": "978-8871921501",
+      "titolo": "Design Patterns",
+      "autore": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+      "valutazione": "CINQUE_STELLE",
+      "statoLettura": "LETTURA_IN_CORSO",
+      "genere": "TECNICO"
+    },
+    {
+      "isbn": "978-88-04-61720-4",
+      "titolo": "Confessioni",
+      "autore": "Agostino D\u0027Ippona",
+      "valutazione": "NON_DISPONIBILE",
+      "statoLettura": "DA_LEGGERE",
+      "genere": "SAGGISTICA"
+    },
+    {
+      "isbn": "978-88-04-68435-0",
+      "titolo": "Lettere morali a Lucilio",
+      "autore": "Lucio Anneo Seneca",
+      "valutazione": "CINQUE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "SAGGISTICA"
+    },
+    {
+      "isbn": "978-88-11-81464-1",
+      "titolo": "I quattro maestri",
+      "autore": "Vito Mancuso",
+      "valutazione": "CINQUE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "SAGGISTICA"
+    },
+    {
+      "isbn": "978-88-452-9875-2",
+      "titolo": "Homo Deus",
+      "autore": "Yuval Noah Harari",
+      "valutazione": "QUATTRO_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "SAGGISTICA"
+    },
+    {
+      "isbn": "978-88-452-9002-2",
+      "titolo": "Fenomenologia dello spirito",
+      "autore": "Georg Wilhelm Friedrich Hegel",
+      "valutazione": "NON_DISPONIBILE",
+      "statoLettura": "DA_LEGGERE",
+      "genere": "SAGGISTICA"
+    },
+    {
+      "isbn": "978-88-04-51778-8",
+      "titolo": "L\u0027arte della guerra",
+      "autore": "Sun Tzu",
+      "valutazione": "TRE_STELLE",
+      "statoLettura": "LETTO",
+      "genere": "SAGGISTICA"
+    }
+  ]
+}

@@ -53,7 +53,7 @@ public class Libreria implements Subject {
     public List<Libro> filtraPerTitolo(String titolo){
         List<Libro> result=new ArrayList<>();
         for(Libro l: libri){
-            if(l.getTitolo().contains(titolo)) result.add(l);
+            if(l.getTitolo().toLowerCase().contains(titolo.toLowerCase())) result.add(l);
         }
         return result;
     }
@@ -62,7 +62,7 @@ public class Libreria implements Subject {
     public List<Libro> filtraPerAutore(String autore){
         List<Libro> result=new ArrayList<>();
         for(Libro l: libri){
-            if(l.getAutore().contains(autore)) result.add(l);
+            if(l.getAutore().toLowerCase().contains(autore.toLowerCase())) result.add(l);
         }
         return result;
     }
@@ -97,13 +97,17 @@ public class Libreria implements Subject {
 
     public void modificaTitolo(String isbn, String titolo){
         for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)) l.setTitolo(titolo);
+            if(l.getIsbn().equals(isbn)){
+                l.setTitolo(titolo);
+                notifica();
+            }
         }
     }
 
+
     public void modificaAutore(String isbn, String autore){
         for(Libro l: libri){
-            if(l.getAutore().equals(autore)){
+            if(l.getIsbn().equals(isbn)){
                 l.setAutore(autore);
                 notifica();
             }
@@ -130,7 +134,7 @@ public class Libreria implements Subject {
 
     public void modificaStatoLettura(String isbn, StatoLettura statoLettura){
         for(Libro l: libri){
-            if(l.getStatoLettura().equals(statoLettura)){
+            if(l.getIsbn().equals(isbn)){
                 l.setStatoLettura(statoLettura);
                 notifica();
             }

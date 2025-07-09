@@ -13,7 +13,8 @@ public class ComandoFiltra implements Command{
 
 
     @Override
-    public void execute(ParsedInput input){
+    public boolean execute(ParsedInput input){
+
         Map<String,String> mappa=input.getArgomentiNominali();
         String campo=mappa.get("campo");
         String valore=mappa.get("valore");
@@ -21,10 +22,7 @@ public class ComandoFiltra implements Command{
 
         if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=2)
             || (campo==null) || (valore==null)){
-            vistaLibreria.mostraMessaggio("Errore! Perfavore, rispetta la sintassi:"+"\n"+
-                    "fltra --<campo> campo --<valore> valore"+"\n"
-                    +"Per maggiori informazioni digita:<aiuto filtra>");
-            return;
+            throw new SemanticException("Comando di filtro malformato");
         }
 
         List<Libro> libri;
@@ -36,11 +34,7 @@ public class ComandoFiltra implements Command{
             case "genere": {
                 Genere genere=Genere.getGenere(valore);
                 if(genere==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                            "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
-                            "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
-                            "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerGenere(genere);
                 break;
@@ -48,11 +42,7 @@ public class ComandoFiltra implements Command{
             case "statoLettura": {
                 StatoLettura statoLettura= StatoLettura.getStatoLettura(valore);
                 if(statoLettura==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                                    "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
-                                    "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
-                                    "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerStatoLettura(statoLettura);
                 break;
@@ -60,30 +50,36 @@ public class ComandoFiltra implements Command{
             case "valutazione": {
                 Valutazione valutazione= Valutazione.getValutazione(valore);
                 if(valutazione==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                                    "valori ammissibili per il genere: narrativa, saggistica, tecnico, biografia, infanzia, generici"+"\n"+
-                                    "valori ammissibili per statoLettura: letto, da_leggere, lettura_in_corso"+"\n"+
-                                    "valori ammissibili per valutazione: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerValutazione(valutazione);
                 break;
             }
             default: {
-             vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                     "gli argomenti ammissibili per campo sono: titolo, autore, genere, statoLettura, valutazione");
-             return;
+                throw new SemanticException("Campo non valido");
+
             }
         }
 
 
-        if(libri.isEmpty()) vistaLibreria.mostraMessaggio("La ricerca con filtro non ha avuto risultati");
+        if(libri.isEmpty()){
+            vistaLibreria.mostraMessaggio("La ricerca con filtro non ha avuto risultati");
+            return true;
+        }
 
 
-        vistaLibreria.mostraRicerca(libri);
 
+        StringBuilder sb=new StringBuilder();
+        sb.append("Risultato della ricerca con filtro:" +"\n");
+        int i=0;
+        for(Libro l: libri){
+            i++;
+            sb.append("Libro numero ").append(i).append(":").append(l).append("\n");
+        }
 
+        vistaLibreria.mostraMessaggio(sb.toString());
 
+        return true;
 
 
 

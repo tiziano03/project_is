@@ -11,16 +11,14 @@ public class ComandoOrdina implements Command {
     }
 
 
+
     @Override
-    public void execute(ParsedInput input) {
+    public boolean execute(ParsedInput input) {
         Map<String, String> mappa=input.getArgomentiNominali();
         String campo=mappa.get("campo");
 
-        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size() > 1) || (campo==null)){
-            vistaLibreria.mostraMessaggio("Perfavore, rispetta la sintassi:"+"\n"+
-                    "<ordina> --<campo> campo"+"\n"+
-                    "per maggiori informazioni digita <aiuto ordina>");
-            return;
+        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=1) || (campo==null)){
+            throw new SemanticException("Comando di ordinamento malformato");
         }
 
 
@@ -36,9 +34,7 @@ public class ComandoOrdina implements Command {
                 libreria.sort(new ComparatoreLibroValutazione());
                 break;
             default:{
-                vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                        "i campi per cui è concesso l'ordinamento sono: titolo, autore, valutazione");
-                return;
+                throw new SemanticException("Campo non ammissibile");
             }
 
         }
@@ -46,6 +42,7 @@ public class ComandoOrdina implements Command {
 
         vistaLibreria.mostraMessaggio("libreria ordinata con successo");
 
+        return true;
 
     }
 

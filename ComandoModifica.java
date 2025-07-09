@@ -11,7 +11,8 @@ public class ComandoModifica implements Command{
 
 
     @Override
-    public void execute(ParsedInput input){
+    public boolean execute(ParsedInput input){
+
         Map<String, String> mappa=input.getArgomentiNominali();
         String isbn=mappa.get("isbn");
         String campo=mappa.get("campo");
@@ -19,18 +20,13 @@ public class ComandoModifica implements Command{
 
         if((!input.getArgomentiPosizionali().isEmpty()) || !(mappa.size()==3)
             || (isbn==null) || (campo==null) || (valore==null)){
-            vistaLibreria.mostraMessaggio("Perfavore, rispetta la sintassi:"+"\n"+
-                    "modifica --<isbn> isbn --<campo> campo --<valore> valore"+"\n"+
-                    "per maggiori informazioni digita <aiuto modifica>");
-            return;
+            throw new SemanticException("Comando di modifica malformato");
         }
 
 
 
         if(!libreria.esiste(isbn)){
-            vistaLibreria.mostraMessaggio("Attenzione:" +"\n"+
-                    "stai cercando di modificare un libro non presente!");
-            return;
+            throw new SemanticException("Isbn inesistente");
         }
 
 
@@ -46,9 +42,7 @@ public class ComandoModifica implements Command{
             case "valutazione":{
                 Valutazione valutazione=Valutazione.getValutazione(valore);
                 if(valutazione==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                            "i valori ammissibili per valutazione sono: una_stella, due_stelle, tre_stelle, quattro_stelle, cinque_stelle, non_disponibile");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libreria.modificaValutazione(isbn,valutazione);
                 break;
@@ -56,9 +50,7 @@ public class ComandoModifica implements Command{
             case "genere":{
                 Genere genere=Genere.getGenere(valore);
                 if(genere==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                            "i valori ammissibili per genere sono: narrativa, saggistica, tecnico, biografia, infanzia, generici");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libreria.modificaGenere(isbn,genere);
                 break;
@@ -66,24 +58,20 @@ public class ComandoModifica implements Command{
             case "statoLettura":{
                 StatoLettura statoLettura=StatoLettura.getStatoLettura(valore);
                 if(statoLettura==null){
-                    vistaLibreria.mostraMessaggio("Attenzione:"+"\n"+
-                            "i valori ammissibili per statoLettura sono: letto, da_leggere, lettura_in_corso");
-                    return;
+                    throw new SemanticException("Valore di campo non ammissibile");
                 }
                 libreria.modificaStatoLettura(isbn,statoLettura);
                 break;
             }
             default:{
-                vistaLibreria.mostraMessaggio("Attenzione"+"\n"+
-                        "i campi che è ammesso modificare sono: titolo, autore, genere, statoLettura, valutazione");
-                return;
+                throw new SemanticException("Campo non ammissibile");
             }
         }
 
 
 
         vistaLibreria.mostraMessaggio("modifica avvenuta con successo");
-
+        return true;
 
 
 

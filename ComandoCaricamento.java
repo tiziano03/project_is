@@ -13,9 +13,15 @@ public class ComandoCaricamento implements Command {
 
 
     @Override
-    public void execute(ParsedInput parsedInput) {
+    public boolean execute(ParsedInput parsedInput) throws PersistenceException {
+        if(!parsedInput.getArgomentiNominali().isEmpty() || !parsedInput.getArgomentiPosizionali().isEmpty()){
+            throw new SemanticException("Comando di caricamento malformato");
+        }
+
+
         gp.carica(libreria,path);
         vistaLibreria.mostraMessaggio("Caricamento avvenuto con successo");
+        return true;
     }
 
 

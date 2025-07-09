@@ -4,6 +4,7 @@ public class ComandoSalvataggio implements Command {
     private final VistaLibreria vistaLibreria;
     private final String path;
 
+
     public ComandoSalvataggio(GestorePersistenza gp,Libreria libreria, VistaLibreria vistaLibreria, String path) {
         this.gp=gp;
         this.libreria=libreria;
@@ -11,10 +12,30 @@ public class ComandoSalvataggio implements Command {
         this.vistaLibreria=vistaLibreria;
     }
 
+
+
+
+
     @Override
-    public void execute(ParsedInput parsedInput) {
+    public boolean execute(ParsedInput input) throws PersistenceException {
+        if(!input.getArgomentiNominali().isEmpty() || !input.getArgomentiPosizionali().isEmpty()){
+            throw new SemanticException("Comando di salvataggio malformato");
+        }
+
+
         gp.salva(libreria,path);
         vistaLibreria.mostraMessaggio("Salvataggio avvenuto con successo");
+        return true;
+
 
     }
+
+
+
+
+
+
+
+
+
 }
