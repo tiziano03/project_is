@@ -15,20 +15,19 @@ public class ComandoCerca implements Command{
 
 
     @Override
-    public boolean execute(ParsedInput input) {
-        if(input.getArgomentiPosizionali().size()!=1 || !input.getArgomentiNominali().isEmpty()){
-            throw new SemanticException("Comando di ricerca malformato");
-        }
+    public void execute(ParsedInput input) {
+        if(!(input.getArgomenti().size()==1 && input.getArgomenti().get("termine")!=null))
+            throw new IllegalArgumentException("Comando di ricerca malformato");
 
-        String termine=input.getArgomentiPosizionali().get(0);
 
+
+
+        String termine=input.getArgomenti().get("termine");
         List<Libro> libri1=libreria.filtraPerTitolo(termine);
         List <Libro> libri2=libreria.filtraPerAutore(termine);
 
-        if(libri1.isEmpty() && libri2.isEmpty()){
-            vistaLibreria.mostraMessaggio("La ricerca non ha dato risultati!");
-            return true;
-        }
+
+
 
         StringBuilder sb=new StringBuilder();
         sb.append("Risultato della ricerca:"+"\n");
@@ -40,12 +39,7 @@ public class ComandoCerca implements Command{
         }
 
 
-
         vistaLibreria.mostraMessaggio(sb.toString());
-        return true;
-
-
-
 
 
     }

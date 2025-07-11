@@ -13,16 +13,16 @@ public class ComandoFiltra implements Command{
 
 
     @Override
-    public boolean execute(ParsedInput input){
+    public void execute(ParsedInput input){
 
-        Map<String,String> mappa=input.getArgomentiNominali();
+        Map<String,String> mappa=input.getArgomenti();
         String campo=mappa.get("campo");
         String valore=mappa.get("valore");
 
 
-        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=2)
+        if ((mappa.size()!=2)
             || (campo==null) || (valore==null)){
-            throw new SemanticException("Comando di filtro malformato");
+            throw new IllegalArgumentException("Comando di filtro malformato");
         }
 
         List<Libro> libri;
@@ -34,7 +34,7 @@ public class ComandoFiltra implements Command{
             case "genere": {
                 Genere genere=Genere.getGenere(valore);
                 if(genere==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerGenere(genere);
                 break;
@@ -42,7 +42,7 @@ public class ComandoFiltra implements Command{
             case "statoLettura": {
                 StatoLettura statoLettura= StatoLettura.getStatoLettura(valore);
                 if(statoLettura==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerStatoLettura(statoLettura);
                 break;
@@ -50,22 +50,17 @@ public class ComandoFiltra implements Command{
             case "valutazione": {
                 Valutazione valutazione= Valutazione.getValutazione(valore);
                 if(valutazione==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
                 libri=libreria.filtraPerValutazione(valutazione);
                 break;
             }
             default: {
-                throw new SemanticException("Campo non valido");
+                throw new CampoNonValidoException("Campo non valido");
 
             }
         }
 
-
-        if(libri.isEmpty()){
-            vistaLibreria.mostraMessaggio("La ricerca con filtro non ha avuto risultati");
-            return true;
-        }
 
 
 
@@ -77,12 +72,8 @@ public class ComandoFiltra implements Command{
             sb.append("Libro numero ").append(i).append(":").append(l).append("\n");
         }
 
+
         vistaLibreria.mostraMessaggio(sb.toString());
-
-        return true;
-
-
-
 
 
 

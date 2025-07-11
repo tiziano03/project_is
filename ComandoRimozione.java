@@ -11,26 +11,25 @@ public class ComandoRimozione implements Command{
 
 
     @Override
-    public boolean execute(ParsedInput parsedInput) {
-        Map<String, String> mappa=parsedInput.getArgomentiNominali();
+    public void execute(ParsedInput parsedInput) {
+        Map<String, String> mappa=parsedInput.getArgomenti();
         String isbn= mappa.get("isbn");
-        if(!(parsedInput.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=1) || (isbn==null)){
-            throw new SemanticException("Comando di rimozione malformato");
+
+
+
+        if((mappa.size()!=1) || (isbn==null)){
+            throw new IllegalArgumentException("Comando di rimozione malformato");
         }
 
 
 
         if(!libreria.esiste(isbn)){
-            throw new SemanticException("Isbn inesistente");
+            throw new IsbnNonTrovatoException("Isbn inesistente");
         }
 
 
+
         libreria.rimuoviIsbn(isbn);
-        vistaLibreria.mostraMessaggio("Libro rimosso con successo");
-        return true;
-
-
-
 
 
     }

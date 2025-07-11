@@ -17,22 +17,19 @@ public class ComandoSalvataggio implements Command {
 
 
     @Override
-    public boolean execute(ParsedInput input) throws PersistenceException {
-        if(!input.getArgomentiNominali().isEmpty() || !input.getArgomentiPosizionali().isEmpty()){
-            throw new SemanticException("Comando di salvataggio malformato");
+    public void execute(ParsedInput input){
+        if(!input.getArgomenti().isEmpty()){
+            throw new IllegalArgumentException("Comando di salvataggio malformato");
         }
 
-
-        gp.salva(libreria,path);
-        vistaLibreria.mostraMessaggio("Salvataggio avvenuto con successo");
-        return true;
+        try {
+            gp.salva(libreria, path);
+        }catch(PersistenceException e){
+            throw new PersistenceRuntimeException(e.getMessage());
+            }
 
 
     }
-
-
-
-
 
 
 

@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Map;
 
 public class ComandoInserimento implements Command{
     private final Libreria libreria;
@@ -14,40 +15,48 @@ public class ComandoInserimento implements Command{
 
 
     @Override
-    public boolean execute(ParsedInput parsedInput) {
+    public void execute(ParsedInput input) {
+        Map<String, String> mappa= input.getArgomenti();
 
-        if(!parsedInput.getArgomentiNominali().isEmpty() || !(parsedInput.getArgomentiPosizionali().size()==6)){
-            throw new SemanticException("Comando di inserimento malformato");
+        String isbn=mappa.get("isbn");
+        String titolo=mappa.get("titolo");
+        String autore=mappa.get("autore");
+        String genere=mappa.get("genere");
+        String statoLettura=mappa.get("statoLettura");
+        String valutazione=mappa.get("valutazione");
+
+
+
+        if(!(mappa.size()==6) || isbn==null || titolo==null || autore==null ||
+                genere==null || statoLettura==null || valutazione==null){
+            throw new IllegalArgumentException("Comando di inserimento malformato");
         }
 
 
-        List<String> lista=parsedInput.getArgomentiPosizionali();
-        String isbn=lista.get(0);
-        String titolo=lista.get(1);
-        String autore=lista.get(2);
-        Genere genere=Genere.getGenere(lista.get(3));
-        StatoLettura statoLettura=StatoLettura.getStatoLettura(lista.get(4));
-        Valutazione valutazione=Valutazione.getValutazione(lista.get(5));
 
-        if(valutazione==null || genere==null || statoLettura==null){
-            throw new SemanticException("Valore di campo non ammissibile");
-        }
+        Genere genereEnum=Genere.getGenere(genere);
+        StatoLettura statoLetturaEnum=StatoLettura.getStatoLettura(statoLettura);
+        Valutazione valutazioneEnum=Valutazione.getValutazione(valutazione);
+
+
+
+        if(!(genereEnum!=null && statoLetturaEnum!=null && valutazioneEnum!=null))
+            throw new ValoreNonValidoException("Valore di campo inammissibile");
+
+
 
 
         if(libreria.esiste(isbn)){
-            throw new SemanticException("Isbn duplicato");
+            throw new IsbnDuplicatoException("Isbn duplicato");
         }
 
-        Libro libro=new Libro(isbn,titolo,autore,valutazione,genere,statoLettura);
+
+
+
+        Libro libro=new Libro(isbn,titolo,autore,valutazioneEnum,genereEnum,statoLetturaEnum);
 
 
         libreria.aggiungiLibro(libro);
-
-
-        vistaLibreria.mostraMessaggio("Inserimento avvenuto con successo");
-
-
-        return true;
 
     }
 }

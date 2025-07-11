@@ -1,11 +1,11 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class VistaLibreriaRC1 implements VistaLibreria {
+public class VistaLibreriaRC implements VistaLibreria {
     private final Scanner sc;
 
 
-    public VistaLibreriaRC1(){
+    public VistaLibreriaRC(){
         sc=new Scanner(System.in);
     }
 

@@ -13,12 +13,12 @@ public class ComandoOrdina implements Command {
 
 
     @Override
-    public boolean execute(ParsedInput input) {
-        Map<String, String> mappa=input.getArgomentiNominali();
+    public void execute(ParsedInput input) {
+        Map<String, String> mappa=input.getArgomenti();
         String campo=mappa.get("campo");
 
-        if ((!input.getArgomentiPosizionali().isEmpty()) || (mappa.size()!=1) || (campo==null)){
-            throw new SemanticException("Comando di ordinamento malformato");
+        if ((mappa.size()!=1) || (campo==null)){
+            throw new IllegalArgumentException("Comando di ordinamento malformato");
         }
 
 
@@ -34,15 +34,11 @@ public class ComandoOrdina implements Command {
                 libreria.sort(new ComparatoreLibroValutazione());
                 break;
             default:{
-                throw new SemanticException("Campo non ammissibile");
+                throw new CampoNonValidoException("Campo non ammissibile");
             }
 
         }
 
-
-        vistaLibreria.mostraMessaggio("libreria ordinata con successo");
-
-        return true;
 
     }
 

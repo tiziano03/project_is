@@ -13,15 +13,18 @@ public class ComandoCaricamento implements Command {
 
 
     @Override
-    public boolean execute(ParsedInput parsedInput) throws PersistenceException {
-        if(!parsedInput.getArgomentiNominali().isEmpty() || !parsedInput.getArgomentiPosizionali().isEmpty()){
-            throw new SemanticException("Comando di caricamento malformato");
+    public void execute(ParsedInput input) {
+        if(!input.getArgomenti().isEmpty()){
+            throw new IllegalArgumentException("Comando di caricamento malformato");
         }
 
+        try {
+            gp.carica(libreria, path);
 
-        gp.carica(libreria,path);
-        vistaLibreria.mostraMessaggio("Caricamento avvenuto con successo");
-        return true;
+        }catch(PersistenceException e){
+            throw new PersistenceRuntimeException(e.getMessage());
+        }
+
     }
 
 

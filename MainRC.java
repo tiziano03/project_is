@@ -3,10 +3,10 @@ import java.util.Map;
 
 public class MainRC {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
 
         Libreria libreria = Libreria.getInstance();
-        VistaLibreriaRC1 vistaLibreria = new VistaLibreriaRC1();
+        VistaLibreriaRC vistaLibreria = new VistaLibreriaRC();
         GestorePersistenza gestorePersistenza = new GestorePersistenza(new StrategiaPersistenzaJson());
 
         String path = "LibreriaPersonale";
@@ -60,7 +60,7 @@ public class MainRC {
         ControllerLibreria controllerLibreria = new ControllerLibreria(mappaComandi, defaultCommand);
 
 
-        InputParser inputParser = new InputParser1();
+        InputParser inputParser=null;
 
 
         libreria.aggiungiAscoltatore(vistaLibreria);
@@ -89,5 +89,5 @@ public class MainRC {
 
         }
 
-    }
+    }*/
 }

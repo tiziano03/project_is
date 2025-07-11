@@ -11,23 +11,25 @@ public class ComandoModifica implements Command{
 
 
     @Override
-    public boolean execute(ParsedInput input){
+    public void execute(ParsedInput input){
 
-        Map<String, String> mappa=input.getArgomentiNominali();
+        Map<String, String> mappa=input.getArgomenti();
         String isbn=mappa.get("isbn");
         String campo=mappa.get("campo");
         String valore=mappa.get("valore");
 
-        if((!input.getArgomentiPosizionali().isEmpty()) || !(mappa.size()==3)
-            || (isbn==null) || (campo==null) || (valore==null)){
-            throw new SemanticException("Comando di modifica malformato");
-        }
+
+
+        if(!(mappa.size()==3) || (isbn==null) || (campo==null) || (valore==null))
+            throw new IllegalArgumentException("Comando di modifica malformato");
+
 
 
 
         if(!libreria.esiste(isbn)){
-            throw new SemanticException("Isbn inesistente");
+            throw new IsbnNonTrovatoException("Isbn inesistente");
         }
+
 
 
         switch (campo){
@@ -42,7 +44,7 @@ public class ComandoModifica implements Command{
             case "valutazione":{
                 Valutazione valutazione=Valutazione.getValutazione(valore);
                 if(valutazione==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
                 libreria.modificaValutazione(isbn,valutazione);
                 break;
@@ -50,7 +52,7 @@ public class ComandoModifica implements Command{
             case "genere":{
                 Genere genere=Genere.getGenere(valore);
                 if(genere==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
                 libreria.modificaGenere(isbn,genere);
                 break;
@@ -58,20 +60,15 @@ public class ComandoModifica implements Command{
             case "statoLettura":{
                 StatoLettura statoLettura=StatoLettura.getStatoLettura(valore);
                 if(statoLettura==null){
-                    throw new SemanticException("Valore di campo non ammissibile");
+                    throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
-                libreria.modificaStatoLettura(isbn,statoLettura);
+                libreria.modificaStatoLettura(isbn, statoLettura);
                 break;
             }
             default:{
-                throw new SemanticException("Campo non ammissibile");
+                throw new CampoNonValidoException("Campo non ammissibile");
             }
         }
-
-
-
-        vistaLibreria.mostraMessaggio("modifica avvenuta con successo");
-        return true;
 
 
 

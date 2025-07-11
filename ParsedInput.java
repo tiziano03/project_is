@@ -1,18 +1,22 @@
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ParsedInput {
     private String nomeComando;
-    private List<String> argomentiPosizionali;
-    private Map<String, String> argomentiNominali;
+    private Map<String, String> argomenti;
 
 
 
-    public ParsedInput(String nomeComando, List<String> argomentiPosizionali, Map<String, String> argomentiNominali) {
+    public ParsedInput(String nomeComando, Map<String, String> argomenti) {
         this.nomeComando=nomeComando;
-        this.argomentiPosizionali=argomentiPosizionali;
-        this.argomentiNominali=argomentiNominali;
+        this.argomenti = argomenti;
     }
+
+    public ParsedInput(String nomeComando) {
+        this.nomeComando=nomeComando;
+        argomenti=new HashMap<>();
+    }
+
 
 
 
@@ -22,14 +26,10 @@ public class ParsedInput {
 
 
 
-    public List<String> getArgomentiPosizionali() {
-        return argomentiPosizionali;
-    }
 
 
-
-    public Map<String, String> getArgomentiNominali() {
-        return argomentiNominali;
+    public Map<String, String> getArgomenti() {
+        return argomenti;
     }
 
 

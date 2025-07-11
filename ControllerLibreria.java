@@ -3,28 +3,22 @@ import java.util.Map;
 
 public class ControllerLibreria {
         private final Map<String, Command> mappaComandi;
-        private final Command comandoDefault;   //è il comando non trovato
 
 
 
 
-        public ControllerLibreria(Map <String, Command> mappaComandi, Command comandoDefault) {
+        public ControllerLibreria(Map <String, Command> mappaComandi) {
             this.mappaComandi=mappaComandi;
-            this.comandoDefault=comandoDefault;
         }
 
 
 
-    public boolean processa(ParsedInput input) throws PersistenceException {
+    public void processa(ParsedInput input){
         String nomeComando=input.getNomeComando();
-        Command comando= mappaComandi.getOrDefault(nomeComando, comandoDefault);
-        return comando.execute(input);
+        Command comando= mappaComandi.get(nomeComando);
+        if(comando==null) throw new UnsupportedOperationException();
+        comando.execute(input);
     }
-
-
-
-
-
 
 
 
