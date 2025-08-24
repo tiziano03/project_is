@@ -1,4 +1,4 @@
-public enum Valutazione {
+public enum Valutazione{
 
      UNA_STELLA(1),
 
@@ -15,7 +15,7 @@ public enum Valutazione {
 
      CINQUE_STELLE(5),
 
-     NON_DISPONIBILE(0);
+     NON_SPECIFICATO(0);
 
 
 
@@ -45,9 +45,7 @@ public enum Valutazione {
 
 
 
-
-
-
-
-
+    public static Valutazione getDefault() {
+        return NON_SPECIFICATO;
+    }
 }

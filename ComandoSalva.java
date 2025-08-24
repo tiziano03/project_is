@@ -1,0 +1,36 @@
+public class ComandoSalva implements Command {
+    private final GestorePersistenza gp;
+    private final Libreria libreria;
+    private final String path;
+
+
+    public ComandoSalva(GestorePersistenza gp, Libreria libreria, String path) {
+        this.gp=gp;
+        this.libreria=libreria;
+        this.path=path;
+    }
+
+
+
+
+
+    @Override
+    public void execute(RichiestaComando input){
+        if(!input.getArgomenti().isEmpty()){
+            throw new IllegalArgumentException("Comando di salvataggio malformato");
+        }
+
+        try {
+            gp.salva(libreria, path);
+        }catch(PersistenceException e){
+            throw new PersistenceRuntimeException(e.getMessage());
+            }
+
+
+    }
+
+
+
+
+
+}

@@ -1,47 +1,46 @@
-import java.util.List;
-import java.util.Scanner;
+public interface VistaLibreriaRC extends Observer{
 
-public class VistaLibreriaRC implements VistaLibreria {
-    private final Scanner sc;
+    /* Generalizza anche la gui che è perfettamente coerente con la nostra applicazione:
+    tutti gli oggetti infatti che utilizzano la vista vedono l'interfaccia VistaLibreria.
+    Inoltre VistaLibreria è perfettamente coerente per generalizzare sia un'interfaccia a riga
+    di comando, sia un'interfaccia grafica!
+    E'stato possibile grazie alla separazione degli interessi! La VistaLibreria ha la responsabilità
+    di interfacciarsi! Non ha metodi specifici che riguardano soltanto gui o soltanto cli.
+    Questo ha concesso l'estensibilità dell'applicazione nel modo in cui si interfaccia all'utente.
 
-
-    public VistaLibreriaRC(){
-        sc=new Scanner(System.in);
-    }
-
-
-
-    @Override
-    public void mostraMessaggio(String messaggio) {
-        System.out.println();
-        System.out.println("*/");
-        System.out.println(messaggio);
-        System.out.println("*/");
-        System.out.println();
-    }
-
-    @Override
-    public void update(List<Libro> libri) {
-        if(!libri.isEmpty()) System.out.println("Libreria");
-        StringBuilder sb=new StringBuilder();
-        int i=0;
-        for (Libro l : libri) {
-            i++;
-            sb.append("Libro numero ").append(i).append(": ").append(l).append("\n");
-        }
-        System.out.println(sb.toString());
-    }
+    Per quanto riguarda la generazione di ParsedInput, la nostra gui avrebbe dei bottoni per i diversi
+    comandi, cliccabili soltanto se tutti i campi necessari per quell'operazione sono stati compilati.
+    Verrà automaticamente generato un ParsedInput quando avviene in click.
+    Questo ci garantisce che non possono esserci errori di sintassi nell'applicativo: infatti il cliente
+    non segue una sintassi, ma compila dei campi!
+    Dunque seppur i comandi dipendono dalla sintassi della cli, sono riutilizzabili per la gui.
 
 
 
-    public String prendiInput() {
-        String input="";
-        while(input.isEmpty()) {
-            System.out.print(">");
-            input = sc.nextLine();
-        }
-        return input;
-    }
+     */
+
+
+
+    public void mostraMessaggio(String messaggio);
+
+
+    public void mostraMessaggioSuccesso(String messaggio);
+
+
+
+    public void mostraMessaggioErrore(String messaggio);
+
+
+    public String prendiInput();
+
+    public void mostraMessaggioQuery(String messaggio);
+
+
+
+    public void mostraMenu(String messaggio);
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 public enum StatoLettura {
-    DA_LEGGERE, LETTURA_IN_CORSO, LETTO;
+    DA_LEGGERE, LETTURA_IN_CORSO, LETTO, NON_SPECIFICATO;
 
 
     public static StatoLettura getStatoLettura(String stringa){
@@ -10,4 +10,8 @@ public enum StatoLettura {
     }
 
 
+
+    public static StatoLettura getDefault() {
+        return NON_SPECIFICATO;
     }
+}

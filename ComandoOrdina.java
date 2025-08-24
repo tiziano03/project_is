@@ -2,35 +2,39 @@ import java.util.Map;
 
 public class ComandoOrdina implements Command {
     private final Libreria libreria;
-    private final VistaLibreria vistaLibreria;
 
 
-    public ComandoOrdina(Libreria libreria, VistaLibreria vistaLibreria) {
+    public ComandoOrdina(Libreria libreria) {
         this.libreria = libreria;
-        this.vistaLibreria = vistaLibreria;
     }
 
 
 
     @Override
-    public void execute(ParsedInput input) {
-        Map<String, String> mappa=input.getArgomenti();
-        String campo=mappa.get("campo");
+    public void execute(RichiestaComando input) {
+        Map<NomeParametro, String> mappa=input.getArgomenti();
+
+        String campo=mappa.get(NomeParametro.CAMPO);
+
+        CampoLibro c=CampoLibro.getCampoLibro(campo);
 
         if ((mappa.size()!=1) || (campo==null)){
             throw new IllegalArgumentException("Comando di ordinamento malformato");
         }
 
+        libreria.sort(c);
 
+        /*
+        if(!CampoLibro.getCampiOrdinabili().contains(campo))
 
-        switch (campo) {
-            case "titolo":
+        switch (c) {
+            case TITOLO:
                 libreria.sort(new ComparatoreLibroTitolo());
                 break;
-            case "autore":
+            case AUTORE:
                 libreria.sort(new ComparatoreLibroAutore());
                 break;
-            case "valutazione":
+            case VALUTAZIONE:
                 libreria.sort(new ComparatoreLibroValutazione());
                 break;
             default:{
@@ -38,7 +42,7 @@ public class ComandoOrdina implements Command {
             }
 
         }
-
+*/
 
     }
 

@@ -1,66 +1,117 @@
+
 import java.util.*;
 
 public class Libreria implements Subject {
-    private List<Libro> libri=new ArrayList<>();
-    private List<Observer> osservatori=new LinkedList<>();
-    private static Libreria instance=new Libreria();
+    private Set<Libro> libri;
+    private final List<Observer> osservatori;
+    private static Libreria instance;
+    private CampoLibro campoOrdinamento;
 
-    public static Libreria getInstance(){
-        return instance;
+
+    //singleton ok
+    public static synchronized Libreria getInstance(){
+        if(instance==null){
+            instance=new Libreria();
+            return instance;
+        }
+        else return instance;
     }
 
-    private Libreria(){}
 
+
+
+    //singleton ok
+    private Libreria(){
+        this.campoOrdinamento=CampoLibro.TITOLO;
+        libri=new TreeSet<Libro>(ComparatoreFactory.creaComparatorDaCampo(this.campoOrdinamento));
+        osservatori=new LinkedList<>();
+    }
+
+
+
+
+    //ok observer
     public void aggiungiAscoltatore(Observer observer) {
         osservatori.add(observer);
     }
 
+
+    //ok observer
     public void rimuoviAscoltatore(Observer observer) {
         osservatori.remove(observer);
     }
 
 
+    //ok aggiungi
     public void aggiungiLibro(Libro l) {
         libri.add(l);
         notifica();
     }
 
 
-    public void rimuoviIsbn(String isbn) {
-        Iterator<Libro> it = libri.iterator();
-        while (it.hasNext()) {
-            Libro curr = it.next();
-            if (curr.getIsbn().equals(isbn)) {
+
+
+    //ok rimuovi
+    public void rimuoviId(UUID id) {
+        boolean found=false;
+        Iterator<Libro> it=libri.iterator();
+        while(it.hasNext()){
+            Libro l=it.next();
+            if(l.getId().equals(id)){
                 it.remove();
-                notifica();
+                found=true;
                 break;
             }
         }
-    }
-
-    public List<Libro> getLibri(){
-        return libri;
-    }
-
-
-    public boolean esiste(String isbn){
-        for(Libro l:libri)
-            if(l.getIsbn().equals(isbn)) return true;
-        return false;
+        if(!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
     }
 
 
+
+   /*
+    public Libro getLibro(UUID id) {
+        if(!libri.containsKey(id)) throw new IdNonTrovatoException("Id non trovato");
+        return libri.get(id);
+    }
+
+
+
+    public void sostituisciLibro(Libro l){
+        if(libri.get(l.getId())==null) throw new IdNonTrovatoException("Id non trovato");
+        libri.put(l.getId(),l);
+    }
+*/
+
+    //ok toString()
+    public String toString(){
+        return libri.toString();
+    }
+
+
+/*
+    //dammi i libri sottoforma di lista con comparatore
+    public Collection<Libro> getLibri(){
+        return this.libri;
+    }
+
+ */
+
+
+    //ok filtra
     public List<Libro> filtraPerTitolo(String titolo){
-        List<Libro> result=new ArrayList<>();
-        for(Libro l: libri){
+        List<Libro> result=new LinkedList<>();
+        for(Libro l: libri) {
             if(l.getTitolo().toLowerCase().contains(titolo.toLowerCase())) result.add(l);
         }
         return result;
     }
 
 
+
+    //ok filtra
     public List<Libro> filtraPerAutore(String autore){
-        List<Libro> result=new ArrayList<>();
+        List<Libro> result=new LinkedList<>();
         for(Libro l: libri){
             if(l.getAutore().toLowerCase().contains(autore.toLowerCase())) result.add(l);
         }
@@ -68,8 +119,10 @@ public class Libreria implements Subject {
     }
 
 
+
+    //ok filtra
     public List<Libro> filtraPerGenere (Genere genere){
-        List<Libro> result=new ArrayList<>();
+        List<Libro> result=new LinkedList<>();
         for(Libro l: libri){
             if(l.getGenere().equals(genere)) result.add(l);
         }
@@ -77,8 +130,10 @@ public class Libreria implements Subject {
     }
 
 
+
+    //ok filtra
     public List<Libro> filtraPerStatoLettura(StatoLettura statoLettura){
-        List<Libro> result=new ArrayList<>();
+        List<Libro> result=new LinkedList<>();
         for(Libro l: libri){
             if(l.getStatoLettura().equals(statoLettura)) result.add(l);
         }
@@ -86,8 +141,10 @@ public class Libreria implements Subject {
     }
 
 
+
+    //ok filtra
     public List<Libro> filtraPerValutazione(Valutazione valutazione){
-        List<Libro> result=new ArrayList<>();
+        List<Libro> result=new LinkedList<>();
         for(Libro l: libri){
             if(l.getValutazione().equals(valutazione)) result.add(l);
         }
@@ -95,77 +152,155 @@ public class Libreria implements Subject {
     }
 
 
-    public void modificaTitolo(String isbn, String titolo){
-        for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)){
+    //modifica ok
+    public void modificaIsbn(UUID id, String isbn){
+        boolean found=false;
+        Iterator<Libro> it=libri.iterator();
+        while(it.hasNext()){
+            Libro l=it.next();
+            if(l.getId().equals(id)){
+                l.setIsbn(isbn);
+                found=true;
+                break;
+            }
+        }
+        if(!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
+    }
+
+
+
+
+    //modifica ok
+    public void modificaTitolo(UUID id, String titolo) {
+        boolean found = false;
+        Iterator<Libro> it = libri.iterator();
+        while (it.hasNext()) {
+            Libro l = it.next();
+            if (l.getId().equals(id)) {
                 l.setTitolo(titolo);
-                notifica();
+                found = true;
+                break;
             }
         }
+        if (!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
     }
 
 
-    public void modificaAutore(String isbn, String autore){
-        for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)){
-                l.setAutore(autore);
-                notifica();
+
+    //modifica ok
+    public void modificaAutore(UUID id, String autore) {
+        boolean found = false;
+        Iterator<Libro> it = libri.iterator();
+        while (it.hasNext()) {
+            Libro l = it.next();
+            if (l.getId().equals(id)) {
+                l.setTitolo(autore);
+                found = true;
+                break;
             }
         }
+        if (!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
     }
 
-    public void modificaGenere(String isbn, Genere genere){
-        for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)){
+
+
+
+    //modifica ok
+    public void modificaGenere(UUID id, Genere genere){
+        boolean found=false;
+        Iterator<Libro> it=libri.iterator();
+        while(it.hasNext()){
+            Libro l=it.next();
+            if(l.getId().equals(id)){
                 l.setGenere(genere);
-                notifica();
+                found=true;
+                break;
             }
         }
+        if(!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
     }
 
-    public void modificaValutazione(String isbn, Valutazione valutazione){
-        for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)){
+
+
+
+
+    //modifica ok
+    public void modificaValutazione(UUID id, Valutazione valutazione){
+        boolean found=false;
+        Iterator<Libro> it=libri.iterator();
+        while(it.hasNext()){
+            Libro l=it.next();
+            if(l.getId().equals(id)){
                 l.setValutazione(valutazione);
-                notifica();
+                found=true;
+                break;
             }
         }
+        if(!found) throw new IdNonTrovatoException("Id non trovato");
+        notifica();
     }
 
-    public void modificaStatoLettura(String isbn, StatoLettura statoLettura){
-        for(Libro l: libri){
-            if(l.getIsbn().equals(isbn)){
+
+
+
+
+    //modifica ok
+    public void modificaStatoLettura(UUID id, StatoLettura statoLettura){
+        boolean found=false;
+        Iterator<Libro> it=libri.iterator();
+        while(it.hasNext()){
+            Libro l=it.next();
+            if(l.getId().equals(id)){
                 l.setStatoLettura(statoLettura);
-                notifica();
+                found=true;
+                break;
             }
         }
-    }
-
-
-
-
-
-    public void sort(Comparator<Libro> strategy){
-        Collections.sort(libri, strategy);
+        if(!found) throw new IdNonTrovatoException("Id non trovato");
         notifica();
     }
 
 
+
+
+    //ordina
+    public void sort(CampoLibro campoOrdinamento){
+        Set<Libro> nuoviLibri=new TreeSet<>(ComparatoreFactory.creaComparatorDaCampo(campoOrdinamento));
+        nuoviLibri.addAll(libri);
+        libri=nuoviLibri;
+        this.campoOrdinamento=campoOrdinamento;
+        notifica();
+    }
+
+
+
+
+    //ok memento
     public Memento getMemento(){
-        return new Memento(libri);
+        return new Memento(libri, campoOrdinamento);
     }
 
 
+
+
+    //ok memento
     public void setMemento(Memento m){
-        libri=m.stato;
+        libri=new TreeSet<>(ComparatoreFactory.creaComparatorDaCampo(m.campoOrdinamento));
+        libri.addAll(m.stato);
         notifica();
     }
 
 
+
+
+    //ok observer
     public void notifica(){
         for (Observer o:osservatori)
             o.update(libri);
-
     }
 
 
@@ -190,11 +325,14 @@ public class Libreria implements Subject {
 
 
     public static class Memento{
-        private List<Libro> stato;
+        private Set<Libro> stato;
+        private CampoLibro campoOrdinamento;
 
 
-        private Memento(List<Libro> stato){
+
+        private Memento(Set <Libro> stato, CampoLibro campoOrdinamento){
             this.stato=stato;
+            this.campoOrdinamento=campoOrdinamento;
         }
 
 

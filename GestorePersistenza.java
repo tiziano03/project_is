@@ -16,7 +16,7 @@ public class GestorePersistenza {
         if(m!=null) l.setMemento(m);
     }
 
-
-
-
 }
+
+
+

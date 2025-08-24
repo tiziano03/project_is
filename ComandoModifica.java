@@ -1,68 +1,87 @@
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
 
 public class ComandoModifica implements Command{
     private final Libreria libreria;
-    private final VistaLibreria vistaLibreria;
 
-    public ComandoModifica(Libreria libreria, VistaLibreria vistaLibreria) {
+
+
+    public ComandoModifica(Libreria libreria) {
         this.libreria=libreria;
-        this.vistaLibreria=vistaLibreria;
     }
 
 
+
+
+
+
+
+
+
+
+
+
     @Override
-    public void execute(ParsedInput input){
+    public void execute(RichiestaComando input){
 
-        Map<String, String> mappa=input.getArgomenti();
-        String isbn=mappa.get("isbn");
-        String campo=mappa.get("campo");
-        String valore=mappa.get("valore");
+        Map<NomeParametro, String> mappa=input.getArgomenti();
+
+        String uuid=mappa.get(NomeParametro.UUID);
+        String campo=mappa.get(NomeParametro.CAMPO);
+        String valore=mappa.get(NomeParametro.VALORE);
 
 
-
-        if(!(mappa.size()==3) || (isbn==null) || (campo==null) || (valore==null))
+        if(!(mappa.size()==3) || (uuid==null) || (campo==null) || (valore==null))
             throw new IllegalArgumentException("Comando di modifica malformato");
 
 
+        UUID id=UUID.fromString(uuid);
 
 
-        if(!libreria.esiste(isbn)){
-            throw new IsbnNonTrovatoException("Isbn inesistente");
-        }
+        CampoLibro c=CampoLibro.getCampoLibro(campo);
 
 
-
-        switch (campo){
-            case "titolo":{
-                libreria.modificaTitolo(isbn,valore);
+        switch (c){
+            case ISBN:{
+                libreria.modificaIsbn(id,valore);
                 break;
             }
-            case "autore":{
-                libreria.modificaAutore(isbn,valore);
+
+            case TITOLO:{
+                libreria.modificaTitolo(id, valore);
                 break;
             }
-            case "valutazione":{
+
+            case AUTORE:{
+                libreria.modificaAutore(id,valore);
+                break;
+            }
+
+            case VALUTAZIONE:{
                 Valutazione valutazione=Valutazione.getValutazione(valore);
                 if(valutazione==null){
                     throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
-                libreria.modificaValutazione(isbn,valutazione);
+                libreria.modificaValutazione(id,valutazione);
                 break;
             }
-            case "genere":{
+
+            case GENERE:{
                 Genere genere=Genere.getGenere(valore);
                 if(genere==null){
                     throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
-                libreria.modificaGenere(isbn,genere);
+                libreria.modificaGenere(id,genere);
                 break;
             }
-            case "statoLettura":{
+            case STATOLETTURA:{
                 StatoLettura statoLettura=StatoLettura.getStatoLettura(valore);
                 if(statoLettura==null){
                     throw new ValoreNonValidoException("Valore di campo non ammissibile");
                 }
-                libreria.modificaStatoLettura(isbn, statoLettura);
+                libreria.modificaStatoLettura(id, statoLettura);
                 break;
             }
             default:{

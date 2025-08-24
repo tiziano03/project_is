@@ -1,7 +1,8 @@
+
 public interface Command {
 
 
-    public void execute(ParsedInput parsedInput);
+    public void execute(RichiestaComando rc);
 
 
 }

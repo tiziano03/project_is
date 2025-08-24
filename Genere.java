@@ -1,10 +1,11 @@
-public enum Genere {
+public enum Genere{
     NARRATIVA,
     SAGGISTICA,
     TECNICO,
     BIOGRAFIA,
     INFANZIA,
-    GENERICI;
+    GENERICI,
+    NON_SPECIFICATO;
 
 
 
@@ -18,15 +19,7 @@ public enum Genere {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+    public static Genere getDefault() {
+        return NON_SPECIFICATO;
+    }
 }

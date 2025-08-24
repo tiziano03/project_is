@@ -1,9 +1,10 @@
 import java.util.List;
+import java.util.Set;
 
 public interface Observer {
 
 
-    public void update(List<Libro> libri);
+    public void update(Set<Libro> libri);
 
 
 
