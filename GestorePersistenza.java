@@ -6,14 +6,14 @@ public class GestorePersistenza {
     }
 
 
-    public void salva(Libreria l, String path) throws PersistenceException {
-        strategia.serialize(l.getMemento(), path);
+    public void salva(Libreria.Memento meme, String path) throws PersistenceException {
+        strategia.serialize(meme, path);
     }
 
 
-    public void carica(Libreria l, String path) throws PersistenceException {
-        Libreria.Memento m=strategia.deserialize(path);
-        if(m!=null) l.setMemento(m);
+    public Libreria.Memento carica(String path) throws PersistenceException {
+        Libreria.Memento meme=strategia.deserialize(path);
+        return meme;
     }
 
 }

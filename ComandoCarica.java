@@ -18,7 +18,8 @@ public class ComandoCarica implements Command {
         }
 
         try {
-            gp.carica(libreria, path);
+            Libreria.Memento meme=gp.carica(path);
+            libreria.setMemento(meme);
 
         }catch(PersistenceException e){
             throw new PersistenceRuntimeException(e.getMessage());

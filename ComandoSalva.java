@@ -19,9 +19,11 @@ public class ComandoSalva implements Command {
         if(!input.getArgomenti().isEmpty()){
             throw new IllegalArgumentException("Comando di salvataggio malformato");
         }
+        Libreria.Memento memento = libreria.getMemento();
+
 
         try {
-            gp.salva(libreria, path);
+            gp.salva(memento, path);
         }catch(PersistenceException e){
             throw new PersistenceRuntimeException(e.getMessage());
             }
