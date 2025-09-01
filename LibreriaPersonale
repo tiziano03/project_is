@@ -1,82 +1,100 @@
 {
   "stato": [
     {
-      "id": "d1e7a601-6c39-44b0-8061-3f20bec5ea82",
-      "isbn": "",
-      "titolo": "a te",
-      "autore": "jovanotti",
+      "id": "fce14d27-2d7b-48e2-926c-14f2258ca0b3",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Design patterns",
+      "autore": "Gang of four",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "6672121a-664c-4208-bf17-5088e81ca9e6",
-      "isbn": "",
-      "titolo": "Blue",
-      "autore": "Billie Eilish",
+      "id": "731aa313-09b5-4439-98ad-e85789e643bc",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Fenomenologia dello spirito",
+      "autore": "Hegel",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "7647bb80-545d-4c21-9081-361294a32cbc",
-      "isbn": "",
-      "titolo": "Buon viaggio",
-      "autore": "Cesare Cremonini",
+      "id": "bbcfa4f0-f010-4f76-bf58-c53b89f2b57f",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Homo Deus",
+      "autore": "Harari",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "86039184-71d4-493c-b23c-48f236c2bd7a",
-      "isbn": "",
-      "titolo": "Enfasi",
-      "autore": "Sierra",
+      "id": "ce6e6a0c-d078-4030-bb69-e02e2d8425f1",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "I quattro maestri",
+      "autore": "Vito Mancuso",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "1f698ea3-1d44-46f0-ae00-6084e5c8d224",
-      "isbn": "",
-      "titolo": "L\u0027albero delle noci",
-      "autore": "Brunori",
+      "id": "bdc0b9b7-6164-418d-a10f-3c9690ef8970",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Il ritratto di Dorian Gray",
+      "autore": "Oscar Wilde",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "4acc211d-b9e9-4fdc-b1c0-5e4b26842434",
-      "isbn": "",
-      "titolo": "Non vivo più senza te",
-      "autore": "Biagio Antonacci",
+      "id": "ed3a0921-ced5-4f6d-aa26-5d2ff673978f",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Inferno",
+      "autore": "Dan Brown",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "5d34a6cd-61d2-478b-9390-8d0fa96a3f43",
-      "isbn": "",
-      "titolo": "Se si potesse non morire",
-      "autore": "Modà",
+      "id": "635bf7bc-abf7-4261-a42f-84b61b3df7ae",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "L\u0027arte della guerra",
+      "autore": "Sun tzu",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "4ed1126c-c0e2-4a8c-9717-ff5e14a0d8b2",
-      "isbn": "",
-      "titolo": "Tran tran",
-      "autore": "Sfera ebbasta",
+      "id": "dbed024e-0e6b-4306-8edc-26418bae8919",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Le intermittenze della morte",
+      "autore": "Jose Saramago",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"
     },
     {
-      "id": "3c486d9f-b28d-46cb-a387-4f540b97b45e",
-      "isbn": "",
-      "titolo": "Tranne te",
-      "autore": "Fabri Fibra",
+      "id": "d6c8ac06-319a-45d5-ba2f-499febeb5128",
+      "isbn": {
+        "value": "NON_SPECIFICATO"
+      },
+      "titolo": "Lettere a Lucilio",
+      "autore": "Seneca",
       "valutazione": "NON_SPECIFICATO",
       "statoLettura": "NON_SPECIFICATO",
       "genere": "NON_SPECIFICATO"

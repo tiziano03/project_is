@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0553b814-6fe1-4973-a733-19ea2a0859a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CampoLibro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CampoLibro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CampoNonValidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CampoNonValidoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CliRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CliRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoAggiungi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoAggiungi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoCarica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoCarica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoModifica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoModifica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoOrdina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoOrdina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoRimuovi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoRimuovi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComandoSalva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComandoSalva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ComparatoreFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComparatoreFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControllerLibreria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerLibreria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DialogHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DialogHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Genere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestorePersistenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GestorePersistenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdNonTrovatoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IdNonTrovatoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libreria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Libreria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibreriaPersonale" beforeDir="false" afterPath="$PROJECT_DIR$/LibreriaPersonale" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibroDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LibroDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NomeComando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NomeComando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NomeParametro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NomeParametro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistenceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersistenceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistenceRuntimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersistenceRuntimeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RichiestaComando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RichiestaComando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StatoLettura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StatoLettura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StrategiaPersistenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StrategiaPersistenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StrategiaPersistenzaJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StrategiaPersistenzaJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ValoreNonValidoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ValoreNonValidoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Valutazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Valutazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VistaLibreriaRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaLibreriaRC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VistaLibreriaRCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VistaLibreriaRCA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CampoLibro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CampoLibro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ComandoAggiungi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ComandoAggiungi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ComandoModifica.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ComandoModifica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ComandoSalva.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ComandoSalva.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ComparatoreFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ComparatoreFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DialogHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DialogHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Genere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Genere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Libreria$Memento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Libreria$Memento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Libreria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Libreria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Libro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Libro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LibroDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LibroDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NomeComando.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NomeComando.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NomeParametro.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NomeParametro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StatoLettura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StatoLettura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/StrategiaPersistenzaJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/StrategiaPersistenzaJson.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Valutazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Valutazione.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VistaLibreriaRCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VistaLibreriaRCA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Wizard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Wizard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/LibreriaPersonale" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/progetto_is.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/filejsonprova2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/target/classes/pom.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="31ruhOGAgISwhtPoJNz3mqd7ZXZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CliRunner.executor": "Run",
+    "JUnit.TestCoreApplication$ComandoAggiungiTest.execute_conDatiValidi_chiamaCorrettamenteAggiungiLibro.executor": "Run",
+    "JUnit.TestCoreApplication$ComandoAggiungiTest.executor": "Run",
+    "JUnit.TestCoreApplication$ComandoRimuoviTest.execute_conIdValido_chiamaCorrettamenteRimuoviLibro.executor": "Run",
+    "JUnit.TestCoreApplication$ComandoRimuoviTest.executor": "Run",
+    "JUnit.TestCoreApplication$TestController.executor": "Run",
+    "JUnit.TestCoreApplication.executor": "Run",
+    "JUnit.TestDomain$LibreriaTest.TestOrdinamentoTitolo.executor": "Run",
+    "JUnit.TestDomain$LibreriaTest.sort_perAutore_cambiaOrdinamento.executor": "Run",
+    "JUnit.TestDomain.executor": "Run",
+    "JUnit.TestDomain.testIntegritaIsbn.executor": "Run",
+    "JUnit.TestDomain.testIntegritaIsbnLunghezzaErrata.executor": "Run",
+    "JUnit.TestDomain.testIntegritaStatoLettura.executor": "Run",
+    "JUnit.TestDomain.testIsbnDefault.executor": "Run",
+    "JUnit.TestDomain.testOrdinamentoInammissibile.executor": "Run",
+    "JUnit.TestPersistence.TestConsistenzaOrdinamento.executor": "Run",
+    "JUnit.TestPersistence.executor": "Run",
+    "JUnit.TestPersistence.testSalvataggioECaricamento.executor": "Run",
+    "JUnit.TestUI.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/ASUS/Desktop/progetto_is/src/test/java",
+    "last_opened_file_path": "C:/Users/ASUS/Desktop/progetto_is",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.TestUI">
+    <configuration name="TestCoreApplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progetto_is" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestCoreApplication" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDomain$LibreriaTest.sort_perAutore_cambiaOrdinamento" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progetto_is" />
+      <option name="PACKAGE_NAME" value="TestDomain" />
+      <option name="MAIN_CLASS_NAME" value="TestDomain$LibreriaTest" />
+      <option name="METHOD_NAME" value="sort_perAutore_cambiaOrdinamento" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDomain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progetto_is" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDomain" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPersistence" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progetto_is" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestPersistence" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="progetto_is" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestUI" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestUI" />
+        <item itemvalue="JUnit.TestPersistence" />
+        <item itemvalue="JUnit.TestCoreApplication" />
+        <item itemvalue="JUnit.TestDomain" />
+        <item itemvalue="JUnit.TestDomain$LibreriaTest.sort_perAutore_cambiaOrdinamento" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0553b814-6fe1-4973-a733-19ea2a0859a9" name="Changes" comment="" />
+      <created>1756294631022</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756294631022</updated>
+      <workItem from="1756294632135" duration="92179000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
