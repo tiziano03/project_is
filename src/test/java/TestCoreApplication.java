@@ -1,3 +1,5 @@
+import CoreApplication.*;
+import Model.*;
 import org.junit.jupiter.api.*;
 import java.util.UUID;
 
@@ -41,9 +43,9 @@ public class TestCoreApplication {
             String titoloTest = "Il Signore degli Anelli";
             String autoreTest = "J.R.R. Tolkien";
             String isbnTest="";
-            String genereTest=Genere.getDefault().name();
-            String statoLetturaTest=StatoLettura.getDefault().name();
-            String valutazioneTest=Valutazione.getDefault().name();
+            String genereTest= Genere.getDefault().name();
+            String statoLetturaTest= StatoLettura.getDefault().name();
+            String valutazioneTest= Valutazione.getDefault().name();
 
             Map<NomeParametro, String> parametri = new HashMap<>();
             parametri.put(NomeParametro.TITOLO, titoloTest);

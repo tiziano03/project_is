@@ -1,3 +1,11 @@
+import CoreApplication.ControllerLibreria;
+import CoreApplication.NomeComando;
+import CoreApplication.NomeParametro;
+import CoreApplication.RichiestaComando;
+import Model.*;
+import Presenter.DialogHelper;
+import Presenter.VistaLibreriaRC;
+import Presenter.Wizard;
 import org.junit.jupiter.api.*;
 
 import java.util.*;
@@ -100,7 +108,7 @@ public class TestUI {
     }
 
     @Nested
-    @DisplayName("Test di DialogHelper (Utility di Dialogo)")
+    @DisplayName("Test del DialogHelper (Utility di Dialogo)")
     class DialogHelperTest {
 
         private DialogHelper dialogHelper;
@@ -145,12 +153,13 @@ public class TestUI {
             Assertions.assertEquals("Testo Valido", risultato);
             // Verifichiamo che sia stato mostrato un messaggio di errore
             Assertions.assertEquals(1, vistaFinta.getErroriMostrati().size());
-           Assertions.assertTrue(vistaFinta.getErroriMostrati().get(0).contains("L'input non può essere vuoto"));
+            Assertions.assertTrue(vistaFinta.getErroriMostrati().get(0).contains("L'input non può essere vuoto"));
         }
     }
 
+
     @Nested
-    @DisplayName("Test di Wizard (Orchestrazione)")
+    @DisplayName("Test del Wizard (Orchestrazione)")
     class WizardTest {
 
         private ControllerStub controllerFinto;
@@ -165,7 +174,6 @@ public class TestUI {
         @Test
         @DisplayName("aggiungi() orchestra il dialogo e invia la RichiestaComando corretta")
         void aggiungi_happyPath_inviaRichiestaCorretta() {
-            // ARRANGE
             String titolo = "Moby Dick";
             String autore = "Herman Melville";
             String isbn = "9788804668237";
@@ -176,7 +184,7 @@ public class TestUI {
             // Programmiamo l'intera conversazione dell'utente
             vistaFinta.preparaInput(titolo, autore, isbn, genere, stato, valutazione);
 
-            // ACT
+
             wizard.aggiungi();
 
 
@@ -192,7 +200,6 @@ public class TestUI {
         @Test
         @DisplayName("selezionaId() gestisce correttamente la selezione da una lista")
         void selezionaId_conRisultatiMultipli_restituisceIdCorretto() {
-            // ARRANGE
 
             Libro l1=new Libro(Isbn.factory(""),"Libro A", "Autore A",
                     Valutazione.getDefault(),Genere.getDefault(), StatoLettura.getDefault());

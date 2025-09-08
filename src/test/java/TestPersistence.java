@@ -1,9 +1,12 @@
+import Model.*;
+import Persistence.GestorePersistenza;
+import Persistence.PersistenceException;
+import Persistence.StrategiaPersistenzaJson;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.io.TempDir;
 
 import java.util.*;
 
-@DisplayName("Test di Integrazione della Persistenza")
+@DisplayName("Test della Persistenza")
 public class TestPersistence {
     private GestorePersistenza gestore;
     private String path;
@@ -17,14 +20,16 @@ public class TestPersistence {
         // creiamo le istanze reali dei componenti per il test di integrazione
         gestore = new GestorePersistenza(new StrategiaPersistenzaJson());
 
-        libreria = new Libreria();
+        libreria = Libreria.getInstance();
+        libreria.reset();
     }
+
 
     @Test
     @DisplayName("Salvataggio e caricamento preservano correttamente i dati dei libri")
     void testSalvataggioECaricamentoDati() throws PersistenceException {
         Libro l1 = new Libro(Isbn.factory(""), "Titolo A", "Autore Z"
-        ,Valutazione.DUE_STELLE, Genere.NARRATIVA, StatoLettura.LETTO);
+        , Valutazione.DUE_STELLE, Genere.NARRATIVA, StatoLettura.LETTO);
         Libro l2 = new Libro(Isbn.factory(""), "Titolo B", "Autore Y",
                 Valutazione.QUATTRO_STELLE, Genere.INFANZIA, StatoLettura.LETTO);
         libreria.aggiungiLibro(l1);
@@ -34,15 +39,15 @@ public class TestPersistence {
         // Se c'è eccezione il test fallisce
         gestore.salva(libreria.getMemento(), path);
 
-        Libreria libreriaCaricata = new Libreria();
+        libreria.reset();
 
-        libreriaCaricata.setMemento(gestore.carica(path));
+        libreria.setMemento(gestore.carica(path));
 
 
 
-        Assertions.assertEquals(2, libreriaCaricata.getLibri().size(), "Il numero di libri non corrisponde.");
-        Assertions.assertTrue(libreriaCaricata.getLibri().contains(l1), "Il libro 1 non è stato caricato correttamente.");
-        Assertions.assertTrue(libreriaCaricata.getLibri().contains(l2), "Il libro 2 non è stato caricato correttamente.");
+        Assertions.assertEquals(2, libreria.getLibri().size(), "Il numero di libri non corrisponde.");
+        Assertions.assertTrue(libreria.getLibri().contains(l1), "Il libro 1 non è stato caricato correttamente.");
+        Assertions.assertTrue(libreria.getLibri().contains(l2), "Il libro 2 non è stato caricato correttamente.");
     }
 
 
@@ -58,10 +63,10 @@ public class TestPersistence {
         libreria.sort(CampoLibro.TITOLO);
 
         gestore.salva(libreria.getMemento(), path);
-        Libreria libreriaCaricata = new Libreria();
-        libreriaCaricata.setMemento(gestore.carica(path));
+        libreria.reset();
+        libreria.setMemento(gestore.carica(path));
 
-        Set<Libro> libriOrdinati = libreriaCaricata.getLibri();
+        Set<Libro> libriOrdinati = libreria.getLibri();
         Iterator<Libro> it=libriOrdinati.iterator();
         l1 = it.next();
         l2 = it.next();
@@ -83,10 +88,10 @@ public class TestPersistence {
         libreria.sort(CampoLibro.AUTORE);
 
         gestore.salva(libreria.getMemento(), path);
-        Libreria libreriaCaricata = new Libreria();
-        libreriaCaricata.setMemento(gestore.carica(path));
+        libreria.reset();
+        libreria.setMemento(gestore.carica(path));
 
-        Set<Libro> libriOrdinati = libreriaCaricata.getLibri();
+        Set<Libro> libriOrdinati = libreria.getLibri();
         Iterator<Libro> it=libriOrdinati.iterator();
         l1 = it.next();
         l2 = it.next();

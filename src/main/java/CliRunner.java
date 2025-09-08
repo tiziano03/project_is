@@ -1,7 +1,13 @@
+import CoreApplication.*;
+import Model.Libreria;
+import Persistence.GestorePersistenza;
+import Persistence.StrategiaPersistenzaJson;
+import Presenter.VistaLibreriaRC;
+import Presenter.VistaLibreriaRCA;
+import Presenter.Wizard;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 public class CliRunner {
 
@@ -29,7 +35,7 @@ public class CliRunner {
 
         ControllerLibreria controller = new ControllerLibreria(mappaComandi, libreria);
 
-        Wizard w=new Wizard(vistaLibreria, controller);
+        Wizard w = new Wizard(vistaLibreria, controller);
 
         w.run();
 
